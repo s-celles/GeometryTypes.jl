@@ -258,3 +258,15 @@ function decompose{T <: Color}(::Type{T}, mesh::AbstractMesh)
     c == nothing && return DefaultColor
     convert(T, c)
 end
+
+function decompose{T1,T2}(::Type{Simplex{2,T1}}, p::Polyhedron{Simplex{3,T2}})
+    edges = Array(Simplex{2,T1}, length(p.elements)*3)
+    @inbounds for i = eachindex(p.elements)
+        elt = p.elements[i]
+        se = decompose(Simplex{2,T1}, elt)
+        edges[3*(i-1)+1] = se[1]
+        edges[3*(i-1)+2] = se[2]
+        edges[3*(i-1)+3] = se[3]
+    end
+    edges
+end

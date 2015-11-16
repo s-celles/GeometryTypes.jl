@@ -7,6 +7,7 @@ import FixedSizeArrays: eltype_or, ndims_or
 
 import Base: ==,
              *,
+             angle,
              call,
              contains,
              convert,
@@ -46,6 +47,8 @@ include("distancefields.jl")
 include("setops.jl")
 include("display.jl")
 include("slice.jl")
+include("polytopes.jl")
+include("angles.jl")
 include("decompose.jl")
 include("deprecated.jl")
 include("checkbounds.jl")
@@ -94,6 +97,9 @@ export AABB,
        Particle,
        PlainMesh,
        Point,
+       Polygon,
+       Polytope,
+       Polyhedron,
        Pyramid,
        Quad,
        Rectangle,

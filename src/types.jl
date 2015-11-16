@@ -5,15 +5,26 @@ abstract AbstractSignedDistanceField <: AbstractDistanceField
 Abstract to categorize geometry primitives of dimensionality `N`.
 """
 abstract GeometryPrimitive{N, T}
+"""
+An `AbstractMesh` helps classify [Polygonal Meshes](https://en.wikipedia.org/wiki/Polygon_mesh)
+These are distinct from polytopes, since these try to be as congruent
+as possible with data strucutres and file formats for 3D visualisation.
+"""
 abstract AbstractMesh{VertT, FaceT} <: GeometryPrimitive
 
 """
-Abstract to classify Simplices. The convention for N starts at 1, which means
+`AbstractSimplex` helps classify Simplices on dimension and vertex type.
+The convention for N starts at 1, which means
 a Simplex has 1 point. A 2-simplex has 2 points, and so forth. This convention
 is not the same as most mathematical texts.
 """
 abstract AbstractSimplex{N,T} <: FixedVector{N,T}
 
+"""
+An `AbstractPolytope` categorizes geometric objects with flat sides.
+For example, a `Polygon` is a polytope realizable in 2 dimensions, so `N` = 2.
+"""
+abstract AbstractPolytope{N,T} <: GeometryPrimitive{N,T}
 
 """
 A `Simplex` is a generalization of an N-dimensional tetrahedra and can be thought
@@ -148,4 +159,14 @@ immutable HomogenousMesh{VertT, FaceT, NormalT, TexCoordT, ColorT, AttribT, Attr
     color               ::ColorT
     attributes          ::AttribT
     attribute_id        ::Vector{AttribIDT}
+end
+
+
+"""
+A `Polytope` is an `N` dimensional object with elements `T` of the same type.
+For example typealias `Polygon` and `Polyhedron` exist for dimensions 2 and
+3 respectively.
+"""
+type Polytope{N,T} <: AbstractPolytope{N,T}
+    elements::Vector{T}
 end
