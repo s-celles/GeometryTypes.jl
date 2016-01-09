@@ -4,7 +4,7 @@ context("constructors") do
     @fact typeof(s) --> SimpleRectangle{Int}
     @fact width(s) --> 3
     @fact height(s) --> 4
-    @fact area(s) --> 12
+    @fact volume(s) --> 12
     @fact xwidth(s) --> 4
     @fact yheight(s) --> 6
     @fact minimum(s) --> Point(1,2)

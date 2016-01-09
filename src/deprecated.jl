@@ -9,6 +9,8 @@ import Base: @deprecate, @deprecate_binding
 
 @deprecate_binding Rectangle SimpleRectangle
 
+@deprecate area(s::SimpleRectangle) volume(s)
+
 # TODO
 # These are very tightly coupled to HomogenousMesh.
 getindex{PT}(r::SimpleRectangle, t::Type{Point{2, PT}}) = decompose(t, r)

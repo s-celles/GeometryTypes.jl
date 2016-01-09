@@ -149,7 +149,6 @@ xwidth(a::SimpleRectangle)  = a.w + a.x
 width(a::SimpleRectangle)  = a.w
 yheight(a::SimpleRectangle) = a.h + a.y
 height(a::SimpleRectangle) = a.h
-area(a::SimpleRectangle) = a.w*a.h
 widths{T}(a::SimpleRectangle{T}) = Point{2,T}(a.w, a.h)
 maximum{T}(a::SimpleRectangle{T}) = Point{2, T}(a.x + widths(a)[1], a.y +widths(a)[2])
 minimum{T}(a::SimpleRectangle{T}) = Point{2, T}(a.x, a.y)
