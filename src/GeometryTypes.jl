@@ -57,6 +57,7 @@ include("decompose.jl")
 include("deprecated.jl")
 include("checkbounds.jl")
 include("center.jl")
+include("centroid.jl")
 
 export AABB,
        AbsoluteRectangle,
@@ -122,6 +123,7 @@ export AABB,
        attributes,
        attributes_noVF,
        before,
+       centroid,
        colors,
        colortype,
        column,
@@ -152,6 +154,7 @@ export AABB,
        normaltype,
        overlaps,
        origin,
+       radius,
        row,
        setindex,
        starts,

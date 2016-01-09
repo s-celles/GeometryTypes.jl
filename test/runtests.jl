@@ -15,6 +15,7 @@ facts("GeometryTypes") do
     include("hypersphere.jl")
     include("typeutils.jl")
     include("angles.jl")
+    include("hypercube.jl")
 end
 
 FactCheck.exitstatus()
