@@ -37,7 +37,6 @@ context("SimpleRectangle") do
                    Point(1,0)]
 end
 
-
 context("Normals") do
     n64 = Normal{3, Float64}[
         (0.0,0.0,-1.0),
@@ -80,6 +79,13 @@ context("Normals") do
 
 end
 
+context("Polyhedron") do
+    p = Polyhedron(Simplex(:a,:b,:c),
+                   Simplex(:b,:a,:d),
+                   Simplex(:c,:b,:d),
+                   Simplex(:a,:c,:d))
+    d = decompose(LineSegment, p)
 
+end
 
 end
